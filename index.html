@@ -1,578 +1,690 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enhanced Affirmations & Binaural Beats</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: url('a.png') no-repeat center center fixed;
-            background-size: cover;
-            color: #1f3548;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        background: url("a.png") no-repeat center center fixed;
+        background-size: cover;
+        color: #1f3548;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+      }
 
-        h1 {
-            font-size: 2.2em;
-            color: #fff;
-            text-align: center;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-        }
+      h1 {
+        font-size: 2.2em;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+      }
 
-        #app {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
-            padding: 20px;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-        }
+      #app {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 12px;
+        padding: 20px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+      }
 
-        .section {
-            margin-bottom: 20px;
-        }
+      .section {
+        margin-bottom: 20px;
+      }
 
-        .section h3 {
-            font-size: 1.2em;
-            color: #3a4a5d;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-        }
+      .section h3 {
+        font-size: 1.2em;
+        color: #3a4a5d;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+      }
 
-        .control-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+      .control-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
 
-        .control-group label {
-            flex: 1;
-            margin-right: 10px;
-        }
+      .control-group label {
+        flex: 1;
+        margin-right: 10px;
+      }
 
-        .control-group input, .control-group select, .control-group textarea {
-            flex: 2;
-            padding: 10px;
-            font-size: 1em;
-            border: none;
-            border-radius: 8px;
-            margin-right: 10px;
-            color: #1f3548;
-            background-color: rgba(255, 255, 255, 0.6);
-            transition: box-shadow 0.3s ease;
-        }
+      .control-group input,
+      .control-group select,
+      .control-group textarea {
+        flex: 2;
+        padding: 10px;
+        font-size: 1em;
+        border: none;
+        border-radius: 8px;
+        margin-right: 10px;
+        color: #1f3548;
+        background-color: rgba(255, 255, 255, 0.6);
+        transition: box-shadow 0.3s ease;
+      }
 
-        .control-group input:focus, .control-group select:focus, .control-group textarea:focus {
-            box-shadow: 0px 0px 8px rgba(105, 145, 200, 0.7);
-            outline: none;
-        }
+      .control-group input:focus,
+      .control-group select:focus,
+      .control-group textarea:focus {
+        box-shadow: 0px 0px 8px rgba(105, 145, 200, 0.7);
+        outline: none;
+      }
 
-        button {
-            background-color: #5e9bb3;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-        }
+      button {
+        background-color: #5e9bb3;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+      }
 
-        button:hover {
-            background-color: #488293;
-            transform: translateY(-3px);
-        }
+      button:hover {
+        background-color: #488293;
+        transform: translateY(-3px);
+      }
 
-        #affirmationList {
-            list-style: none;
-            padding: 0;
-            margin-top: 15px;
-            max-height: 200px;
-            overflow-y: auto;
-            scroll-behavior: smooth;
-        }
+      #affirmationList {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+        max-height: 200px;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+      }
 
-        .affirmation {
-            background-color: rgba(120, 175, 208, 0.8);
-            color: #ffffff;
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: box-shadow 0.3s;
-            font-weight: bold;
-        }
+      .affirmation {
+        background-color: rgba(120, 175, 208, 0.8);
+        color: #ffffff;
+        border-radius: 10px;
+        padding: 12px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: box-shadow 0.3s;
+        font-weight: bold;
+      }
 
-        .affirmation:hover {
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-        }
+      .affirmation:hover {
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+      }
 
-        .affirmationCheckbox {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-            accent-color: #5e9bb3;
-        }
+      .affirmationCheckbox {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        accent-color: #5e9bb3;
+      }
 
-        #loadingBarContainer {
-            width: 100%;
-            background-color: rgba(120, 175, 208, 0.4);
-            border-radius: 5px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            display: none;
-        }
+      #loadingBarContainer {
+        width: 100%;
+        background-color: rgba(120, 175, 208, 0.4);
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        display: none;
+      }
 
-        #loadingBar {
-            height: 5px;
-            background-color: #5e9bb3;
-            width: 0;
-            transition: width 0.4s ease;
-        }
+      #loadingBar {
+        height: 5px;
+        background-color: #5e9bb3;
+        width: 0;
+        transition: width 0.4s ease;
+      }
 
-        input[type="checkbox"] {
-            transform: scale(1.2);
-            transition: transform 0.2s;
-        }
+      input[type="checkbox"] {
+        transform: scale(1.2);
+        transition: transform 0.2s;
+      }
 
-        input[type="checkbox"]:hover {
-            transform: scale(1.3);
-        }
+      input[type="checkbox"]:hover {
+        transform: scale(1.3);
+      }
 
-        button {
-            animation: floatButton 2s ease-in-out infinite alternate;
-        }
+      button {
+        animation: floatButton 2s ease-in-out infinite alternate;
+      }
 
-        @keyframes floatButton {
-            from { transform: translateY(0); }
-            to { transform: translateY(-5px); }
+      @keyframes floatButton {
+        from {
+          transform: translateY(0);
         }
+        to {
+          transform: translateY(-5px);
+        }
+      }
 
-        #darkModeToggle {
-            margin-top: 20px;
-        }
+      #darkModeToggle {
+        margin-top: 20px;
+      }
 
-        .dark-mode {
-            background-color: #1f3548;
-            color: #ffffff;
-        }
+      .dark-mode {
+        background-color: #1f3548;
+        color: #ffffff;
+      }
 
-        .dark-mode .affirmation {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
+      .dark-mode .affirmation {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
 
-        .dark-mode .affirmation:hover {
-            box-shadow: 0px 6px 12px rgba(255, 255, 255, 0.2);
-        }
+      .dark-mode .affirmation:hover {
+        box-shadow: 0px 6px 12px rgba(255, 255, 255, 0.2);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Enhanced Affirmations & Binaural Beats</h1>
 
     <div id="app">
-        <div class="section">
-            <div class="control-group">
-                <label for="apiSelect">Choose Voice API:</label>
-                <select id="apiSelect" onchange="updateVoiceOptions()">
-                    <option value="browser">Browser SpeechSynthesis</option>
-                    <option value="google">Google Cloud TTS (API Key Required)</option>
-                    <option value="amazon">Amazon Polly (API Key Required)</option>
-                    <option value="microsoft">Microsoft Azure TTS (API Key Required)</option>
-                    <option value="mozilla">Mozilla TTS (free)</option>
-                </select>
-            </div>
-
-            <div class="control-group">
-                <label for="voiceSelect">Choose Voice:</label>
-                <select id="voiceSelect"></select>
-                <button onclick="downloadVoices()">Download Voices</button>
-            </div>
-
-            <div id="loadingBarContainer">
-                <div id="loadingBar"></div>
-            </div>
-
-            <div class="control-group">
-                <textarea id="affirmationInput" rows="2" cols="30" placeholder="Type your affirmation here"></textarea>
-                <button onclick="addAffirmation()">Add Affirmation</button>
-                <label>
-                    <input type="checkbox" id="subliminalEffect"> Subliminal Effect
-                </label>
-            </div>
-
-            <div class="section">
-                <h3>Your Affirmations</h3>
-                <ul id="affirmationList"></ul>
-            </div>
-
-            <div class="section">
-                <h3>Voice Controls</h3>
-                <div class="control-group">
-                    <label for="pitchRange">Adjust Pitch:</label>
-                    <input type="range" id="pitchRange" min="-1" max="1" step="0.1" value="0">
-                    <span id="pitchValue">0.0</span>
-                </div>
-
-                <div class="control-group">
-                    <label for="rateRange">Adjust Speed:</label>
-                    <input type="range" id="rateRange" min="0.1" max="2" step="0.1" value="1">
-                    <span id="rateValue">1.0</span>
-                </div>
-
-                <div class="control-group">
-                    <label for="volumeRange">Adjust Volume:</label>
-                    <input type="range" id="volumeRange" min="0" max="1" step="0.1" value="1">
-                    <span id="volumeValue">1.0</span>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <button onclick="playSelectedAffirmations()">Play Selected in Loop</button>
-                <button id="playPauseButton" onclick="togglePlayPause()">Play Selected in Loop</button>
-            </div>
-
-            <div class="section">
-                <h3>Import/Export Affirmations</h3>
-                <div class="control-group">
-                    <textarea id="importExportText" rows="2" cols="30" placeholder="Paste or copy affirmations here"></textarea>
-                    <button onclick="importAffirmations()">Import</button>
-                    <button onclick="exportAffirmations()">Export</button>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Binaural Beats Settings</h3>
-                <div class="control-group">
-                    <label for="leftFreq">Left Frequency (Hz):</label>
-                    <select id="leftFreq">
-                        <option value="210">210 (Focus)</option>
-                        <option value="396">396 (root) emotion Stability</option>
-                        <option value="417">417 (sacral) desire / change </option>
-                        <option value="528">528 (solor) self  and no other opinions. </option>
-                        <option value="639">639 (heart) love /  </option>
-                        <option value="741">741 (thtoat) grow / communition  </option>
-                        <option value="852">852 (3rd) do for others/ trusting </option>
-                        <option value="963">852 (c) nothing </option>
-                        <option value="7.83">7.83 (Earth Frequency)</option>
-                        <option value="custom">Custom</option>
-                    </select>
-                    <input type="number" id="customLeftFreq" step="0.01" placeholder="Custom Hz" style="display:none;">
-                </div>
-
-                <div class="control-group">
-                    <label for="rightFreq">Right Frequency (Hz):</label>
-                    <select id="rightFreq">
-                        <option value="396">396 (root) emotion Stability</option>
-                        <option value="417">417 (sacral) desire / change </option>
-                        <option value="528">528 (solor) self  and no other opinions. </option>
-                        <option value="639">639 (heart) love /  </option>
-                        <option value="741">741 (thtoat) grow / communition  </option>
-                        <option value="852">852 (3rd) do for others/ trusting </option>
-                        <option value="963">852 (c) nothing </option>
-                        <option value="7.83">7.83 (Earth Frequency)</option>
-                        <option value="custom">Custom</option>
-                    </select>
-                    <input type="number" id="customRightFreq" step="0.01" placeholder="Custom Hz" style="display:none;">
-                </div>
-
-                <div class="control-group">
-                    <button onclick="startBinauralBeats()">Start Binaural Beats</button>
-                    <button onclick="stopBinauralBeats()">Stop Binaural Beats</button>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Playlists</h3>
-                <div class="control-group">
-                    <input type="text" id="playlistName" placeholder="Playlist Name">
-                    <button onclick="createPlaylist()">Create Playlist</button>
-                </div>
-
-                <div class="control-group">
-                    <select id="playlistSelect"></select>
-                    <button onclick="playPlaylist()">Play Playlist</button>
-                    <button onclick="savePlaylist()">Save Playlist</button>
-                    <button onclick="deletePlaylist()">Delete Playlist</button>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Subconscious Programming</h3>
-                <div class="control-group">
-                    <label for="subliminalMessage">Subliminal Message:</label>
-                    <input type="text" id="subliminalMessage" placeholder="Subliminal Message">
-                </div>
-
-                <div class="control-group">
-                    <label for="subliminalInterval">Interval (seconds):</label>
-                    <input type="number" id="subliminalInterval" value="10">
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Background Music</h3>
-                <div class="control-group">
-                    <input type="file" id="backgroundMusic" accept="audio/*">
-                    <button onclick="playBackgroundMusic()">Play Background Music</button>
-                    <button onclick="stopBackgroundMusic()">Stop Background Music</button>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Dark Mode Toggle</h3>
-                <div class="control-group">
-                    <label for="darkMode">Dark Mode:</label>
-                    <input type="checkbox" id="darkMode" onchange="toggleDarkMode()">
-                </div>
-            </div>
+      <div class="section">
+        <div class="control-group">
+          <label for="apiSelect">Choose Voice API:</label>
+          <select id="apiSelect" onchange="updateVoiceOptions()">
+            <option value="browser">Browser SpeechSynthesis</option>
+            <option value="google">Google Cloud TTS (API Key Required)</option>
+            <option value="amazon">Amazon Polly (API Key Required)</option>
+            <option value="microsoft">
+              Microsoft Azure TTS (API Key Required)
+            </option>
+            <option value="mozilla">Mozilla TTS (free)</option>
+          </select>
         </div>
+
+        <div class="control-group">
+          <label for="voiceSelect">Choose Voice:</label>
+          <select id="voiceSelect"></select>
+          <button onclick="downloadVoices()">Download Voices</button>
+        </div>
+
+        <div id="loadingBarContainer">
+          <div id="loadingBar"></div>
+        </div>
+        <div class="section">
+          <h3>Download and Use Voices</h3>
+          <div class="control-group">
+            <button onclick="downloadVoices()">Download Voices</button>
+            <select id="downloadedVoiceSelect" disabled>
+              <option value="">Select a Downloaded Voice</option>
+            </select>
+          </div>
+        </div>
+
+        <textarea
+          id="affirmationInput"
+          rows="10"
+          cols="50"
+          placeholder="Type your affirmation here"
+        ></textarea>
+        <br />
+        <div class="control-group">
+          <button onclick="addAffirmation()">Add Affirmation</button>
+          <label>
+            <input type="checkbox" id="subliminalEffect" /> Subliminal Effect
+          </label>
+        </div>
+
+        <div class="section">
+          <h3>Your Affirmations</h3>
+          <ul id="affirmationList"></ul>
+        </div>
+
+        <div class="section">
+          <h3>Voice Controls</h3>
+          <div class="control-group">
+            <label for="pitchRange">Adjust Pitch:</label>
+            <input
+              type="range"
+              id="pitchRange"
+              min="-1"
+              max="1"
+              step="0.1"
+              value="0"
+            />
+            <span id="pitchValue">0.0</span>
+          </div>
+
+          <div class="control-group">
+            <label for="rateRange">Adjust Speed:</label>
+            <input
+              type="range"
+              id="rateRange"
+              min="0.1"
+              max="2"
+              step="0.1"
+              value="1"
+            />
+            <span id="rateValue">1.0</span>
+          </div>
+
+          <div class="control-group">
+            <label for="volumeRange">Adjust Volume:</label>
+            <input
+              type="range"
+              id="volumeRange"
+              min="0"
+              max="1"
+              step="0.1"
+              value="1"
+            />
+            <span id="volumeValue">1.0</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <button onclick="playSelectedAffirmations()">
+            Play Selected in Loop
+          </button>
+          <button id="playPauseButton" onclick="togglePlayPause()">
+            Play Selected in Loop
+          </button>
+        </div>
+
+        <div class="section">
+          <h3>Import/Export Affirmations</h3>
+          <div class="control-group">
+            <textarea
+              id="importExportText"
+              rows="2"
+              cols="30"
+              placeholder="Paste or copy affirmations here"
+            ></textarea>
+            <button onclick="importAffirmations()">Import</button>
+            <button onclick="exportAffirmations()">Export</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Binaural Beats Settings</h3>
+          <div class="control-group">
+            <label for="leftFreq">Left Frequency (Hz):</label>
+            <select id="leftFreq">
+              <option value="210">210 (Focus)</option>
+              <option value="396">396 (root) emotion Stability</option>
+              <option value="417">417 (sacral) desire / change</option>
+              <option value="528">
+                528 (solor) self and no other opinions.
+              </option>
+              <option value="639">639 (heart) love /</option>
+              <option value="741">741 (thtoat) grow / communition</option>
+              <option value="852">852 (3rd) do for others/ trusting</option>
+              <option value="963">852 (c) nothing</option>
+              <option value="7.83">7.83 (Earth Frequency)</option>
+              <option value="custom">Custom</option>
+            </select>
+            <input
+              type="number"
+              id="customLeftFreq"
+              step="0.01"
+              placeholder="Custom Hz"
+              style="display: none"
+            />
+          </div>
+
+          <div class="control-group">
+            <label for="rightFreq">Right Frequency (Hz):</label>
+            <select id="rightFreq">
+              <option value="396">396 (root) emotion Stability</option>
+              <option value="417">417 (sacral) desire / change</option>
+              <option value="528">
+                528 (solor) self and no other opinions.
+              </option>
+              <option value="639">639 (heart) love /</option>
+              <option value="741">741 (thtoat) grow / communition</option>
+              <option value="852">852 (3rd) do for others/ trusting</option>
+              <option value="963">852 (c) nothing</option>
+              <option value="7.83">7.83 (Earth Frequency)</option>
+              <option value="custom">Custom</option>
+            </select>
+            <input
+              type="number"
+              id="customRightFreq"
+              step="0.01"
+              placeholder="Custom Hz"
+              style="display: none"
+            />
+          </div>
+
+          <div class="control-group">
+            <button onclick="startBinauralBeats()">Start Binaural Beats</button>
+            <button onclick="stopBinauralBeats()">Stop Binaural Beats</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Background Music</h3>
+          <div class="control-group">
+            <input type="file" id="backgroundMusic" accept="audio/*" />
+            <button onclick="playBackgroundMusic()">
+              Play Background Music
+            </button>
+            <button onclick="stopBackgroundMusic()">
+              Stop Background Music
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-        let affirmations = JSON.parse(localStorage.getItem('affirmations') || '[]');
-        let audioContext;
-        let leftOscillator, rightOscillator;
-        let playAllInterval;
-        let isPlaying = false; // Track if affirmations are currently playing
-        let currentAffirmationIndex = 0;
-        let selectedAffirmations = [];
-        let playlists = JSON.parse(localStorage.getItem('playlists') || '{}');
-        let currentPlaylist = null;
-        let subliminalMessage = '';
-        let subliminalInterval = 10;
-        let backgroundMusic = null;
+      let affirmations = JSON.parse(
+        localStorage.getItem("affirmations") || "[]"
+      );
+      let audioContext;
+      let leftOscillator, rightOscillator;
+      let playAllInterval;
+      let isPlaying = false; // Track if affirmations are currently playing
+      let currentAffirmationIndex = 0;
+      let selectedAffirmations = [];
+      let playlists = JSON.parse(localStorage.getItem("playlists") || "{}");
+      let currentPlaylist = null;
+      let subliminalMessage = "";
+      let subliminalInterval = 10;
+      let backgroundMusic = null;
 
-        function updateVoiceOptions() {
-            const apiSelect = document.getElementById('apiSelect').value;
-            const voiceSelect = document.getElementById('voiceSelect');
-            voiceSelect.innerHTML = ''; // Clear existing options
+      let downloadedVoices = JSON.parse(
+        localStorage.getItem("downloadedVoices") || "[]"
+      );
 
-            if (apiSelect === 'browser') {
-                populateBrowserVoices();
-            } else if (apiSelect === 'google') {
-                loadGoogleVoices();
-            } else if (apiSelect === 'amazon') {
-                loadAmazonVoices();
-            } else if (apiSelect === 'microsoft') {
-                loadMicrosoftVoices();
-            } else if (apiSelect === 'mozilla') {
-                loadMozillaVoices();
-            }
+      function downloadVoices() {
+        const apiSelect = document.getElementById("apiSelect").value;
+        if (apiSelect === "browser") {
+          alert("Browser voices are already available offline.");
+          return;
         }
 
-        // Load browser voices
-        function populateBrowserVoices() {
-            const voices = speechSynthesis.getVoices();
-            voices.forEach((voice, index) => {
-                const option = document.createElement('option');
-                option.value = index;
-                option.textContent = `${voice.name} (${voice.lang})`;
-                document.getElementById('voiceSelect').appendChild(option);
-            });
+        showLoadingBar();
+        setTimeout(() => {
+          // Simulate downloading voices
+          const newVoices = [
+            { name: "Downloaded Female", lang: "en-US" },
+            { name: "Downloaded Male", lang: "en-GB" },
+          ];
+
+          downloadedVoices = downloadedVoices.concat(newVoices);
+          localStorage.setItem(
+            "downloadedVoices",
+            JSON.stringify(downloadedVoices)
+          );
+          updateDownloadedVoiceSelect();
+          alert("Voices downloaded successfully!");
+          hideLoadingBar();
+        }, 3000); // Simulate download time
+      }
+
+      function updateDownloadedVoiceSelect() {
+        const downloadedVoiceSelect = document.getElementById(
+          "downloadedVoiceSelect"
+        );
+        downloadedVoiceSelect.innerHTML =
+          '<option value="">Select a Downloaded Voice</option>';
+        downloadedVoices.forEach((voice, index) => {
+          const option = document.createElement("option");
+          option.value = index;
+          option.textContent = `${voice.name} (${voice.lang})`;
+          downloadedVoiceSelect.appendChild(option);
+        });
+        downloadedVoiceSelect.disabled = false;
+      }
+
+   
+
+      function populateDownloadedVoices() {
+        const voiceSelect = document.getElementById("voiceSelect");
+        downloadedVoices.forEach((voice, index) => {
+          const option = document.createElement("option");
+          option.value = index;
+          option.textContent = `${voice.name} (${voice.lang})`;
+          voiceSelect.appendChild(option);
+        });
+      }
+
+      // Initialize downloaded voices on page load
+      updateDownloadedVoiceSelect();
+
+
+      function updateVoiceOptions() {
+  const apiSelect = document.getElementById("apiSelect").value;
+  const voiceSelect = document.getElementById("voiceSelect");
+  voiceSelect.innerHTML = ""; // Clear existing options
+
+  if (apiSelect === "browser") {
+    populateBrowserVoices();
+  } else if (apiSelect === "google") {
+    loadGoogleVoices();
+  } else if (apiSelect === "amazon") {
+    loadAmazonVoices();
+  } else if (apiSelect === "microsoft") {
+    loadMicrosoftVoices();
+  } else if (apiSelect === "mozilla") {
+    loadMozillaVoices();
+  } else if (apiSelect === "downloaded") {
+    populateDownloadedVoices();
+  }
+}
+      // Load browser voices
+      function populateBrowserVoices() {
+        const voices = speechSynthesis.getVoices();
+        voices.forEach((voice, index) => {
+          const option = document.createElement("option");
+          option.value = index;
+          option.textContent = `${voice.name} (${voice.lang})`;
+          document.getElementById("voiceSelect").appendChild(option);
+        });
+      }
+
+      // Load Google TTS voices (Placeholder function for demonstration)
+      function loadGoogleVoices() {
+        showLoadingBar();
+        setTimeout(() => {
+          // Example voices; replace with API call for actual Google TTS voices
+          const googleVoices = [
+            { name: "Google Female", lang: "en-US" },
+            { name: "Google Male", lang: "en-GB" },
+          ];
+          googleVoices.forEach((voice, index) => {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent = `${voice.name} (${voice.lang})`;
+            document.getElementById("voiceSelect").appendChild(option);
+          });
+          hideLoadingBar();
+        }, 2000); // Simulate API load time
+      }
+
+      // Load Amazon Polly voices (Placeholder function for demonstration)
+      function loadAmazonVoices() {
+        showLoadingBar();
+        setTimeout(() => {
+          // Example voices; replace with API call for actual Amazon Polly voices
+          const amazonVoices = [
+            { name: "Amazon Female", lang: "en-US" },
+            { name: "Amazon Male", lang: "en-GB" },
+          ];
+          amazonVoices.forEach((voice, index) => {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent = `${voice.name} (${voice.lang})`;
+            document.getElementById("voiceSelect").appendChild(option);
+          });
+          hideLoadingBar();
+        }, 2000); // Simulate API load time
+      }
+
+      // Load Microsoft Azure TTS voices (Placeholder function for demonstration)
+      function loadMicrosoftVoices() {
+        showLoadingBar();
+        setTimeout(() => {
+          // Example voices; replace with API call for actual Microsoft Azure TTS voices
+          const microsoftVoices = [
+            { name: "Microsoft Female", lang: "en-US" },
+            { name: "Microsoft Male", lang: "en-GB" },
+          ];
+          microsoftVoices.forEach((voice, index) => {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent = `${voice.name} (${voice.lang})`;
+            document.getElementById("voiceSelect").appendChild(option);
+          });
+          hideLoadingBar();
+        }, 2000); // Simulate API load time
+      }
+
+      // Load Mozilla TTS voices (Placeholder function for demonstration)
+      function loadMozillaVoices() {
+        showLoadingBar();
+        setTimeout(() => {
+          // Example voices; replace with API call for actual Mozilla TTS voices
+          const mozillaVoices = [
+            { name: "Mozilla Female", lang: "en-US" },
+            { name: "Mozilla Male", lang: "en-GB" },
+          ];
+          mozillaVoices.forEach((voice, index) => {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent = `${voice.name} (${voice.lang})`;
+            document.getElementById("voiceSelect").appendChild(option);
+          });
+          hideLoadingBar();
+        }, 2000); // Simulate API load time
+      }
+
+      // Show loading bar
+      function showLoadingBar() {
+        const loadingBarContainer = document.getElementById(
+          "loadingBarContainer"
+        );
+        const loadingBar = document.getElementById("loadingBar");
+        loadingBarContainer.style.display = "block";
+        loadingBar.style.width = "0%";
+        let width = 0;
+        const interval = setInterval(() => {
+          if (width >= 100) {
+            clearInterval(interval);
+          } else {
+            width += 10;
+            loadingBar.style.width = width + "%";
+          }
+        }, 100);
+      }
+
+      // Hide loading bar
+      function hideLoadingBar() {
+        document.getElementById("loadingBarContainer").style.display = "none";
+      }
+
+      // Toggle Play/Pause
+      function togglePlayPause() {
+        if (isPlaying) {
+          pauseAffirmations();
+        } else {
+          playSelectedAffirmations();
+        }
+      }
+
+      // Play selected affirmations
+      function playSelectedAffirmations() {
+        selectedAffirmations = Array.from(
+          document.querySelectorAll(".affirmationCheckbox")
+        )
+          .filter((checkbox) => checkbox.checked)
+          .map((checkbox) => affirmations[checkbox.getAttribute("data-index")]);
+
+        if (selectedAffirmations.length === 0) {
+          alert("Please select at least one affirmation to play.");
+          return;
         }
 
-        // Load Google TTS voices (Placeholder function for demonstration)
-        function loadGoogleVoices() {
-            showLoadingBar();
-            setTimeout(() => {
-                // Example voices; replace with API call for actual Google TTS voices
-                const googleVoices = [
-                    { name: "Google Female", lang: "en-US" },
-                    { name: "Google Male", lang: "en-GB" },
-                ];
-                googleVoices.forEach((voice, index) => {
-                    const option = document.createElement('option');
-                    option.value = index;
-                    option.textContent = `${voice.name} (${voice.lang})`;
-                    document.getElementById('voiceSelect').appendChild(option);
-                });
-                hideLoadingBar();
-            }, 2000); // Simulate API load time
+        isPlaying = true;
+        document.getElementById("playPauseButton").textContent = "Pause";
+        currentAffirmationIndex = 0;
+        playNextAffirmation();
+      }
+function playNextAffirmation() {
+  if (!isPlaying) return;
+
+  if (currentAffirmationIndex >= selectedAffirmations.length) {
+    currentAffirmationIndex = 0;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(
+    selectedAffirmations[currentAffirmationIndex]
+  );
+  const voices = speechSynthesis.getVoices();
+  const selectedVoiceIndex = document.getElementById("voiceSelect").value;
+  utterance.voice = voices[selectedVoiceIndex];
+  utterance.rate = parseFloat(document.getElementById("rateRange").value);
+  utterance.pitch = parseFloat(document.getElementById("pitchRange").value);
+  utterance.volume = parseFloat(document.getElementById("volumeRange").value);
+
+  if (document.getElementById("subliminalEffect").checked) {
+    utterance.volume = 0.3;
+    setInterval(() => {
+      const subliminalUtterance = new SpeechSynthesisUtterance(subliminalMessage);
+      subliminalUtterance.voice = voices[selectedVoiceIndex];
+      subliminalUtterance.rate = parseFloat(document.getElementById("rateRange").value);
+      subliminalUtterance.pitch = parseFloat(document.getElementById("pitchRange").value);
+      subliminalUtterance.volume = 0.1;
+      speechSynthesis.speak(subliminalUtterance);
+    }, subliminalInterval * 1000);
+  }
+
+  utterance.onend = () => {
+    currentAffirmationIndex++;
+    if (isPlaying) setTimeout(playNextAffirmation, 3000);
+  };
+
+  speechSynthesis.speak(utterance);
+}
+
+      function pauseAffirmations() {
+        isPlaying = false;
+        document.getElementById("playPauseButton").textContent =
+          "Play Selected in Loop";
+        speechSynthesis.cancel();
+      }
+
+      // Load voice list on page load
+      window.speechSynthesis.onvoiceschanged = populateBrowserVoices;
+
+      // Add affirmation to list
+      function addAffirmation() {
+        const text = document.getElementById("affirmationInput").value;
+        if (!text) {
+          alert("Please enter an affirmation to add.");
+          return;
         }
+        affirmations.push(text);
+        localStorage.setItem("affirmations", JSON.stringify(affirmations));
+        document.getElementById("affirmationInput").value = "";
+        updateAffirmationList();
+      }
 
-        // Load Amazon Polly voices (Placeholder function for demonstration)
-        function loadAmazonVoices() {
-            showLoadingBar();
-            setTimeout(() => {
-                // Example voices; replace with API call for actual Amazon Polly voices
-                const amazonVoices = [
-                    { name: "Amazon Female", lang: "en-US" },
-                    { name: "Amazon Male", lang: "en-GB" },
-                ];
-                amazonVoices.forEach((voice, index) => {
-                    const option = document.createElement('option');
-                    option.value = index;
-                    option.textContent = `${voice.name} (${voice.lang})`;
-                    document.getElementById('voiceSelect').appendChild(option);
-                });
-                hideLoadingBar();
-            }, 2000); // Simulate API load time
-        }
-
-        // Load Microsoft Azure TTS voices (Placeholder function for demonstration)
-        function loadMicrosoftVoices() {
-            showLoadingBar();
-            setTimeout(() => {
-                // Example voices; replace with API call for actual Microsoft Azure TTS voices
-                const microsoftVoices = [
-                    { name: "Microsoft Female", lang: "en-US" },
-                    { name: "Microsoft Male", lang: "en-GB" },
-                ];
-                microsoftVoices.forEach((voice, index) => {
-                    const option = document.createElement('option');
-                    option.value = index;
-                    option.textContent = `${voice.name} (${voice.lang})`;
-                    document.getElementById('voiceSelect').appendChild(option);
-                });
-                hideLoadingBar();
-            }, 2000); // Simulate API load time
-        }
-
-        // Load Mozilla TTS voices (Placeholder function for demonstration)
-        function loadMozillaVoices() {
-            showLoadingBar();
-            setTimeout(() => {
-                // Example voices; replace with API call for actual Mozilla TTS voices
-                const mozillaVoices = [
-                    { name: "Mozilla Female", lang: "en-US" },
-                    { name: "Mozilla Male", lang: "en-GB" },
-                ];
-                mozillaVoices.forEach((voice, index) => {
-                    const option = document.createElement('option');
-                    option.value = index;
-                    option.textContent = `${voice.name} (${voice.lang})`;
-                    document.getElementById('voiceSelect').appendChild(option);
-                });
-                hideLoadingBar();
-            }, 2000); // Simulate API load time
-        }
-
-        // Show loading bar
-        function showLoadingBar() {
-            const loadingBarContainer = document.getElementById('loadingBarContainer');
-            const loadingBar = document.getElementById('loadingBar');
-            loadingBarContainer.style.display = 'block';
-            loadingBar.style.width = '0%';
-            let width = 0;
-            const interval = setInterval(() => {
-                if (width >= 100) {
-                    clearInterval(interval);
-                } else {
-                    width += 10;
-                    loadingBar.style.width = width + '%';
-                }
-            }, 100);
-        }
-
-        // Hide loading bar
-        function hideLoadingBar() {
-            document.getElementById('loadingBarContainer').style.display = 'none';
-        }
-
-        // Toggle Play/Pause
-        function togglePlayPause() {
-            if (isPlaying) {
-                pauseAffirmations();
-            } else {
-                playSelectedAffirmations();
-            }
-        }
-
-        // Play selected affirmations
-        function playSelectedAffirmations() {
-            selectedAffirmations = Array.from(document.querySelectorAll('.affirmationCheckbox'))
-                .filter(checkbox => checkbox.checked)
-                .map(checkbox => affirmations[checkbox.getAttribute('data-index')]);
-
-            if (selectedAffirmations.length === 0) {
-                alert("Please select at least one affirmation to play.");
-                return;
-            }
-
-            isPlaying = true;
-            document.getElementById('playPauseButton').textContent = "Pause";
-            currentAffirmationIndex = 0;
-            playNextAffirmation();
-        }
-
-        function playNextAffirmation() {
-            if (!isPlaying) return;
-
-            if (currentAffirmationIndex >= selectedAffirmations.length) {
-                currentAffirmationIndex = 0;
-            }
-
-            const utterance = new SpeechSynthesisUtterance(selectedAffirmations[currentAffirmationIndex]);
-            const voices = speechSynthesis.getVoices();
-            const selectedVoiceIndex = document.getElementById('voiceSelect').value;
-            utterance.voice = voices[selectedVoiceIndex];
-            utterance.rate = parseFloat(document.getElementById('rateRange').value);
-            utterance.pitch = parseFloat(document.getElementById('pitchRange').value);
-            utterance.volume = parseFloat(document.getElementById('volumeRange').value);
-
-            if (document.getElementById('subliminalEffect').checked) {
-                utterance.volume = 0.3;
-                setTimeout(() => {
-                    const subliminalUtterance = new SpeechSynthesisUtterance(subliminalMessage);
-                    subliminalUtterance.voice = voices[selectedVoiceIndex];
-                    subliminalUtterance.rate = parseFloat(document.getElementById('rateRange').value);
-                    subliminalUtterance.pitch = parseFloat(document.getElementById('pitchRange').value);
-                    subliminalUtterance.volume = 0.1;
-                    speechSynthesis.speak(subliminalUtterance);
-                }, subliminalInterval * 1000);
-            }
-
-            utterance.onend = () => {
-                currentAffirmationIndex++;
-                if (isPlaying) setTimeout(playNextAffirmation, 3000);
-            };
-
-            speechSynthesis.speak(utterance);
-        }
-
-        function pauseAffirmations() {
-            isPlaying = false;
-            document.getElementById('playPauseButton').textContent = "Play Selected in Loop";
-            speechSynthesis.cancel();
-        }
-
-        // Load voice list on page load
-        window.speechSynthesis.onvoiceschanged = populateBrowserVoices;
-
-        // Add affirmation to list
-        function addAffirmation() {
-            const text = document.getElementById('affirmationInput').value;
-            if (!text) {
-                alert("Please enter an affirmation to add.");
-                return;
-            }
-            affirmations.push(text);
-            localStorage.setItem('affirmations', JSON.stringify(affirmations));
-            document.getElementById('affirmationInput').value = '';
-            updateAffirmationList();
-        }
-
-        // Update affirmation list display
-        function updateAffirmationList() {
-            const list = document.getElementById('affirmationList');
-            list.innerHTML = '';
-            affirmations.forEach((text, index) => {
-                const item = document.createElement('li');
-                item.className = "affirmation";
-                item.innerHTML = `
+      // Update affirmation list display
+      function updateAffirmationList() {
+        const list = document.getElementById("affirmationList");
+        list.innerHTML = "";
+        affirmations.forEach((text, index) => {
+          const item = document.createElement("li");
+          item.className = "affirmation";
+          item.innerHTML = `
                     <input type="checkbox" class="affirmationCheckbox" data-index="${index}">
                     <span>${text}</span>
                     <div class="controls">
@@ -580,230 +692,261 @@
                         <button onclick="editAffirmation(${index})"><i class="fas fa-edit"></i> Edit</button>
                         <button onclick="deleteAffirmation(${index})"><i class="fas fa-trash"></i> Delete</button>
                     </div>`;
-                list.appendChild(item);
-            });
-        }
-
-        // Play specific affirmation with selected voice
-        function playAffirmation(index) {
-            const utterance = new SpeechSynthesisUtterance(affirmations[index]);
-            const voices = speechSynthesis.getVoices();
-            const selectedVoiceIndex = document.getElementById('voiceSelect').value;
-            utterance.voice = voices[selectedVoiceIndex];
-            utterance.rate = parseFloat(document.getElementById('rateRange').value);
-            utterance.pitch = parseFloat(document.getElementById('pitchRange').value);
-            utterance.volume = parseFloat(document.getElementById('volumeRange').value);
-            speechSynthesis.speak(utterance);
-        }
-
-        // Edit specific affirmation
-        function editAffirmation(index) {
-            const newText = prompt("Edit your affirmation:", affirmations[index]);
-            if (newText !== null) {
-                affirmations[index] = newText;
-                localStorage.setItem('affirmations', JSON.stringify(affirmations));
-                updateAffirmationList();
-            }
-        }
-
-        // Delete specific affirmation
-        function deleteAffirmation(index) {
-            affirmations.splice(index, 1);
-            localStorage.setItem('affirmations', JSON.stringify(affirmations));
-            updateAffirmationList();
-        }
-
-        // Import affirmations
-        function importAffirmations() {
-            const text = document.getElementById('importExportText').value;
-            if (!text) return;
-            affirmations = text.split(',').map(aff => aff.trim());
-            localStorage.setItem('affirmations', JSON.stringify(affirmations));
-            updateAffirmationList();
-        }
-
-        // Export affirmations
-        function exportAffirmations() {
-            document.getElementById('importExportText').value = affirmations.join(', ');
-        }
-
-        // Binaural beat frequency dropdown custom option handler
-        document.getElementById('leftFreq').addEventListener('change', (e) => {
-            document.getElementById('customLeftFreq').style.display = e.target.value === 'custom' ? 'inline' : 'none';
+          list.appendChild(item);
         });
-        document.getElementById('rightFreq').addEventListener('change', (e) => {
-            document.getElementById('customRightFreq').style.display = e.target.value === 'custom' ? 'inline' : 'none';
-        });
+      }
 
-        // Start binaural beats
-        function startBinauralBeats() {
-            if (audioContext) audioContext.close();
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      // Play specific affirmation with selected voice
+      function playAffirmation(index) {
+        const utterance = new SpeechSynthesisUtterance(affirmations[index]);
+        const voices = speechSynthesis.getVoices();
+        const selectedVoiceIndex = document.getElementById("voiceSelect").value;
+        utterance.voice = voices[selectedVoiceIndex];
+        utterance.rate = parseFloat(document.getElementById("rateRange").value);
+        utterance.pitch = parseFloat(
+          document.getElementById("pitchRange").value
+        );
+        utterance.volume = parseFloat(
+          document.getElementById("volumeRange").value
+        );
+        speechSynthesis.speak(utterance);
+      }
 
-            const leftFrequency = parseFloat(document.getElementById('leftFreq').value === 'custom' ? document.getElementById('customLeftFreq').value : document.getElementById('leftFreq').value);
-            const rightFrequency = parseFloat(document.getElementById('rightFreq').value === 'custom' ? document.getElementById('customRightFreq').value : document.getElementById('rightFreq').value);
-
-            leftOscillator = audioContext.createOscillator();
-            rightOscillator = audioContext.createOscillator();
-            leftOscillator.frequency.value = leftFrequency;
-            rightOscillator.frequency.value = rightFrequency;
-
-            const leftGain = audioContext.createGain();
-            const rightGain = audioContext.createGain();
-            leftGain.gain.value = 0.1;
-            rightGain.gain.value = 0.1;
-
-            const leftPanner = audioContext.createStereoPanner();
-            const rightPanner = audioContext.createStereoPanner();
-            leftPanner.pan.value = -1;
-            rightPanner.pan.value = 1;
-
-            leftOscillator.connect(leftGain).connect(leftPanner).connect(audioContext.destination);
-            rightOscillator.connect(rightGain).connect(rightPanner).connect(audioContext.destination);
-
-            leftOscillator.start();
-            rightOscillator.start();
+      // Edit specific affirmation
+      function editAffirmation(index) {
+        const newText = prompt("Edit your affirmation:", affirmations[index]);
+        if (newText !== null) {
+          affirmations[index] = newText;
+          localStorage.setItem("affirmations", JSON.stringify(affirmations));
+          updateAffirmationList();
         }
+      }
 
-        // Stop binaural beats
-        function stopBinauralBeats() {
-            if (leftOscillator) leftOscillator.stop();
-            if (rightOscillator) rightOscillator.stop();
-            if (audioContext) audioContext.close();
-        }
-
-        // Playlist Feature
-        function createPlaylist() {
-            const playlistName = document.getElementById('playlistName').value;
-            if (!playlistName) {
-                alert("Please enter a playlist name.");
-                return;
-            }
-            playlists[playlistName] = [];
-            document.getElementById('playlistSelect').innerHTML = '';
-            for (const name in playlists) {
-                const option = document.createElement('option');
-                option.value = name;
-                option.textContent = name;
-                document.getElementById('playlistSelect').appendChild(option);
-            }
-            document.getElementById('playlistName').value = '';
-        }
-
-        function playPlaylist() {
-            const selectedPlaylist = document.getElementById('playlistSelect').value;
-            if (!selectedPlaylist) {
-                alert("Please select a playlist to play.");
-                return;
-            }
-            currentPlaylist = selectedPlaylist;
-            selectedAffirmations = playlists[selectedPlaylist];
-            if (selectedAffirmations.length === 0) {
-                alert("The selected playlist is empty.");
-                return;
-            }
-            isPlaying = true;
-            document.getElementById('playPauseButton').textContent = "Pause";
-            currentAffirmationIndex = 0;
-            playNextAffirmation();
-        }
-
-        function savePlaylist() {
-            const selectedAffirmations = Array.from(document.querySelectorAll('.affirmationCheckbox'))
-                .filter(checkbox => checkbox.checked)
-                .map(checkbox => affirmations[checkbox.getAttribute('data-index')]);
-            const playlistName = document.getElementById('playlistSelect').value;
-            if (!playlistName) {
-                alert("Please select a playlist to save.");
-                return;
-            }
-            playlists[playlistName] = selectedAffirmations;
-            localStorage.setItem('playlists', JSON.stringify(playlists));
-        }
-
-        function deletePlaylist() {
-            const selectedPlaylist = document.getElementById('playlistSelect').value;
-            if (!selectedPlaylist) {
-                alert("Please select a playlist to delete.");
-                return;
-            }
-            delete playlists[selectedPlaylist];
-            localStorage.setItem('playlists', JSON.stringify(playlists));
-            document.getElementById('playlistSelect').innerHTML = '';
-            for (const name in playlists) {
-                const option = document.createElement('option');
-                option.value = name;
-                option.textContent = name;
-                document.getElementById('playlistSelect').appendChild(option);
-            }
-        }
-
-        // Subconscious Programming
-        document.getElementById('subliminalMessage').addEventListener('input', (e) => {
-            subliminalMessage = e.target.value;
-        });
-
-        document.getElementById('subliminalInterval').addEventListener('input', (e) => {
-            subliminalInterval = parseInt(e.target.value, 10);
-        });
-
-        // Background Music
-        document.getElementById('backgroundMusic').addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    backgroundMusic = event.target.result;
-                };
-                reader.readAsArrayBuffer(file);
-            }
-        });
-
-        function playBackgroundMusic() {
-            if (backgroundMusic) {
-                const audio = new Audio();
-                audio.src = URL.createObjectURL(new Blob([backgroundMusic]));
-                audio.loop = true;
-                audio.play();
-            }
-        }
-
-        function stopBackgroundMusic() {
-            const audio = document.querySelector('audio');
-            if (audio) {
-                audio.pause();
-                audio.src = '';
-            }
-        }
-
-        // Dark Mode Toggle
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-
-        // Download voices for offline use
-        function downloadVoices() {
-            const apiSelect = document.getElementById('apiSelect').value;
-            if (apiSelect === 'browser') {
-                alert("Browser voices are already available offline.");
-                return;
-            }
-
-            showLoadingBar();
-            setTimeout(() => {
-                alert("Voices downloaded successfully!");
-                hideLoadingBar();
-            }, 3000); // Simulate download time
-        }
-
-        // Initialize affirmations and playlists from storage
+      // Delete specific affirmation
+      function deleteAffirmation(index) {
+        affirmations.splice(index, 1);
+        localStorage.setItem("affirmations", JSON.stringify(affirmations));
         updateAffirmationList();
-        for (const name in playlists) {
-            const option = document.createElement('option');
-            option.value = name;
-            option.textContent = name;
-            document.getElementById('playlistSelect').appendChild(option);
+      }
+
+      // Import affirmations
+      function importAffirmations() {
+        const text = document.getElementById("importExportText").value;
+        if (!text) return;
+        affirmations = text.split(",").map((aff) => aff.trim());
+        localStorage.setItem("affirmations", JSON.stringify(affirmations));
+        updateAffirmationList();
+      }
+
+      // Export affirmations
+      function exportAffirmations() {
+        document.getElementById("importExportText").value =
+          affirmations.join(", ");
+      }
+
+      // Binaural beat frequency dropdown custom option handler
+      document.getElementById("leftFreq").addEventListener("change", (e) => {
+        document.getElementById("customLeftFreq").style.display =
+          e.target.value === "custom" ? "inline" : "none";
+      });
+      document.getElementById("rightFreq").addEventListener("change", (e) => {
+        document.getElementById("customRightFreq").style.display =
+          e.target.value === "custom" ? "inline" : "none";
+      });
+
+      // Start binaural beats
+      function startBinauralBeats() {
+        if (audioContext) audioContext.close();
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        const leftFrequency = parseFloat(
+          document.getElementById("leftFreq").value === "custom"
+            ? document.getElementById("customLeftFreq").value
+            : document.getElementById("leftFreq").value
+        );
+        const rightFrequency = parseFloat(
+          document.getElementById("rightFreq").value === "custom"
+            ? document.getElementById("customRightFreq").value
+            : document.getElementById("rightFreq").value
+        );
+
+        leftOscillator = audioContext.createOscillator();
+        rightOscillator = audioContext.createOscillator();
+        leftOscillator.frequency.value = leftFrequency;
+        rightOscillator.frequency.value = rightFrequency;
+
+        const leftGain = audioContext.createGain();
+        const rightGain = audioContext.createGain();
+        leftGain.gain.value = 0.1;
+        rightGain.gain.value = 0.1;
+
+        const leftPanner = audioContext.createStereoPanner();
+        const rightPanner = audioContext.createStereoPanner();
+        leftPanner.pan.value = -1;
+        rightPanner.pan.value = 1;
+
+        leftOscillator
+          .connect(leftGain)
+          .connect(leftPanner)
+          .connect(audioContext.destination);
+        rightOscillator
+          .connect(rightGain)
+          .connect(rightPanner)
+          .connect(audioContext.destination);
+
+        leftOscillator.start();
+        rightOscillator.start();
+      }
+
+      // Stop binaural beats
+      function stopBinauralBeats() {
+        if (leftOscillator) leftOscillator.stop();
+        if (rightOscillator) rightOscillator.stop();
+        if (audioContext) audioContext.close();
+      }
+
+      // Playlist Feature
+      function createPlaylist() {
+        const playlistName = document.getElementById("playlistName").value;
+        if (!playlistName) {
+          alert("Please enter a playlist name.");
+          return;
         }
+        playlists[playlistName] = [];
+        document.getElementById("playlistSelect").innerHTML = "";
+        for (const name in playlists) {
+          const option = document.createElement("option");
+          option.value = name;
+          option.textContent = name;
+          document.getElementById("playlistSelect").appendChild(option);
+        }
+        document.getElementById("playlistName").value = "";
+      }
+
+      function playPlaylist() {
+        const selectedPlaylist =
+          document.getElementById("playlistSelect").value;
+        if (!selectedPlaylist) {
+          alert("Please select a playlist to play.");
+          return;
+        }
+        currentPlaylist = selectedPlaylist;
+        selectedAffirmations = playlists[selectedPlaylist];
+        if (selectedAffirmations.length === 0) {
+          alert("The selected playlist is empty.");
+          return;
+        }
+        isPlaying = true;
+        document.getElementById("playPauseButton").textContent = "Pause";
+        currentAffirmationIndex = 0;
+        playNextAffirmation();
+      }
+
+      function savePlaylist() {
+        const selectedAffirmations = Array.from(
+          document.querySelectorAll(".affirmationCheckbox")
+        )
+          .filter((checkbox) => checkbox.checked)
+          .map((checkbox) => affirmations[checkbox.getAttribute("data-index")]);
+        const playlistName = document.getElementById("playlistSelect").value;
+        if (!playlistName) {
+          alert("Please select a playlist to save.");
+          return;
+        }
+        playlists[playlistName] = selectedAffirmations;
+        localStorage.setItem("playlists", JSON.stringify(playlists));
+      }
+
+      function deletePlaylist() {
+        const selectedPlaylist =
+          document.getElementById("playlistSelect").value;
+        if (!selectedPlaylist) {
+          alert("Please select a playlist to delete.");
+          return;
+        }
+        delete playlists[selectedPlaylist];
+        localStorage.setItem("playlists", JSON.stringify(playlists));
+        document.getElementById("playlistSelect").innerHTML = "";
+        for (const name in playlists) {
+          const option = document.createElement("option");
+          option.value = name;
+          option.textContent = name;
+          document.getElementById("playlistSelect").appendChild(option);
+        }
+      }
+
+      // Subconscious Programming
+      document
+        .getElementById("subliminalMessage")
+        .addEventListener("input", (e) => {
+          subliminalMessage = e.target.value;
+        });
+
+      document
+        .getElementById("subliminalInterval")
+        .addEventListener("input", (e) => {
+          subliminalInterval = parseInt(e.target.value, 10);
+        });
+
+      // Background Music
+      document
+        .getElementById("backgroundMusic")
+        .addEventListener("change", (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+              backgroundMusic = event.target.result;
+            };
+            reader.readAsArrayBuffer(file);
+          }
+        });
+
+      function playBackgroundMusic() {
+        if (backgroundMusic) {
+          const audio = new Audio();
+          audio.src = URL.createObjectURL(new Blob([backgroundMusic]));
+          audio.loop = true;
+          audio.play();
+        }
+      }
+
+      function stopBackgroundMusic() {
+        const audio = document.querySelector("audio");
+        if (audio) {
+          audio.pause();
+          audio.src = "";
+        }
+      }
+
+      // Dark Mode Toggle
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+      }
+
+      // Download voices for offline use
+      function downloadVoices() {
+        const apiSelect = document.getElementById("apiSelect").value;
+        if (apiSelect === "browser") {
+          alert("Browser voices are already available offline.");
+          return;
+        }
+
+        showLoadingBar();
+        setTimeout(() => {
+          alert("Voices downloaded successfully!");
+          hideLoadingBar();
+        }, 3000); // Simulate download time
+      }
+
+      // Initialize affirmations and playlists from storage
+      updateAffirmationList();
+      for (const name in playlists) {
+        const option = document.createElement("option");
+        option.value = name;
+        option.textContent = name;
+        document.getElementById("playlistSelect").appendChild(option);
+      }
     </script>
-</body>
+  </body>
 </html>
